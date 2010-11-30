@@ -1,0 +1,8 @@
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\obj\Debug\Painter.Painter.resources
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\obj\Debug\Painter.Properties.Resources.resources
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\obj\Debug\Painter.csproj.GenerateResource.Cache
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\bin\Debug\Painter.exe
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\bin\Debug\Painter.pdb
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\obj\Debug\Painter.exe
+C:\Users\PyroTech\Documents\Homework\CSC202\Painter\Painter\obj\Debug\Painter.pdb
