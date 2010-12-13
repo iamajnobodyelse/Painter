@@ -12,14 +12,21 @@ namespace Painter
     public partial class Painter : Form
     {
         bool paint = false;
+        bool drawSquare = false;
+        bool getClickA = false;
         int brushSize = 1;
-        Pen color;
+        Pen pen;
+        Brush brush;
         Point startLocation;
         Graphics graphic;
         Bitmap drawing;
         Rectangle selectionRectangle;
-        Color colorChoice;
+        string brushType;
         private System.Drawing.Bitmap myBitmap;
+        int clickA1;
+        int clickA2;
+        int clickB1;
+        int clickB2;
 
 
         public Painter()
@@ -27,7 +34,8 @@ namespace Painter
             InitializeComponent();
             drawing = new Bitmap(this.Width, this.Height);
             graphic = Graphics.FromImage(this.drawing);
-            color = new Pen(Color.Black);
+            pen = new Pen(Color.Black);
+            brushType = "pen";
             Graphics.FromImage(this.drawing);
             //selectionRectangle = new Rectangle(10, 10, 100, 100);
         }
@@ -48,19 +56,40 @@ namespace Painter
         {
             paint = true;
             startLocation = e.Location;
+            if (brushType == "square" && clickA1 == 0)
+            {
+                clickA1 = e.X;
+                clickA2 = e.Y;
+                drawSquare = true;
+            }
         }
 
         private void Painter_MouseUp(object sender, MouseEventArgs e)
         {
             paint = false;
+            if (brushType == "square" && drawSquare == true)
+            {
+                clickB1 = (clickA1 - e.X);
+                clickB2 = (clickA2 - e.Y);
+                graphic.DrawRectangle(pen, clickA1, clickA2, clickB1, clickB2);
+                drawSquare = false;
+                clickA1 = 0;
+            }
         }
 
         private void Painter_MouseMove(object sender, MouseEventArgs e)
         {
             if (paint)
             {
-                graphic.DrawLine(color, startLocation, e.Location);
-                startLocation = e.Location;
+                if (brushType == "pen")
+                {
+                    graphic.DrawLine(pen, startLocation, e.Location);
+                    startLocation = e.Location;
+                }
+                if (brushType == "square")
+                {
+
+                }
                 this.Refresh();
             }
         }
@@ -70,7 +99,7 @@ namespace Painter
             if (brushSize < 20)
             {
                 brushSize = brushSize + 1;
-                color.Width = brushSize;
+                pen.Width = brushSize;
             }
         }
 
@@ -79,7 +108,7 @@ namespace Painter
             if (brushSize > 1)
             {
                 brushSize = brushSize - 1;
-                color.Width = brushSize;
+                pen.Width = brushSize;
             }
 
         }
@@ -94,7 +123,18 @@ namespace Painter
         private void ChooseColor_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            color.Color = colorDialog1.Color;
+            pen.Color = colorDialog1.Color;
+        }
+
+        private void buttonPen_Click(object sender, EventArgs e)
+        {
+            brushType = "pen";
+        }
+
+
+        private void buttonSquare_Click(object sender, EventArgs e)
+        {
+            brushType = "square";
         }
     }
 }
