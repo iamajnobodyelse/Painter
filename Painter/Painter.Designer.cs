@@ -118,7 +118,7 @@
             // Bigger
             // 
             this.Bigger.Font = new System.Drawing.Font("Arial", 14F);
-            this.Bigger.Location = new System.Drawing.Point(117, 396);
+            this.Bigger.Location = new System.Drawing.Point(108, 396);
             this.Bigger.Name = "Bigger";
             this.Bigger.Size = new System.Drawing.Size(41, 28);
             this.Bigger.TabIndex = 9;
@@ -129,7 +129,7 @@
             // Smaller
             // 
             this.Smaller.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Smaller.Location = new System.Drawing.Point(164, 396);
+            this.Smaller.Location = new System.Drawing.Point(155, 396);
             this.Smaller.Name = "Smaller";
             this.Smaller.Size = new System.Drawing.Size(41, 28);
             this.Smaller.TabIndex = 10;
@@ -157,6 +157,7 @@
             this.Name = "Painter";
             this.Text = "Painter";
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Painter_MouseUp);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Painter_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Painter_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Painter_MouseMove);
             this.ResumeLayout(false);

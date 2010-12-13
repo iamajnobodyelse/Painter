@@ -12,12 +12,14 @@ namespace Painter
     public partial class Painter : Form
     {
         bool paint = false;
-        int brushSize = 2;
+        int brushSize = 1;
         Pen color;
         Point startLocation;
         Graphics graphic;
         Bitmap drawing;
         Rectangle selectionRectangle;
+        Color colorChoice;
+        private System.Drawing.Bitmap myBitmap;
 
 
         public Painter()
@@ -26,13 +28,20 @@ namespace Painter
             drawing = new Bitmap(this.Width, this.Height);
             graphic = Graphics.FromImage(this.drawing);
             color = new Pen(Color.Black);
-            //Graphics.FromImage(this.drawing);
-            //selectionRectangle = new Rectangle(10, 10);
+            Graphics.FromImage(this.drawing);
+            //selectionRectangle = new Rectangle(10, 10, 100, 100);
+        }
+
+        private void Painter_Load(object sender, EventArgs e)
+        {
+
+
         }
 
         private void New_Click(object sender, EventArgs e)
         {
-
+            graphic.Clear(Color.White);
+            this.Refresh();
         }
 
         private void Painter_MouseDown(object sender, MouseEventArgs e)
@@ -50,7 +59,6 @@ namespace Painter
         {
             if (paint)
             {
-                //color = new Pen(Color.Red);
                 graphic.DrawLine(color, startLocation, e.Location);
                 startLocation = e.Location;
                 this.Refresh();
@@ -60,26 +68,33 @@ namespace Painter
         private void Bigger_Click(object sender, EventArgs e)
         {
             if (brushSize < 20)
-                brushSize = brushSize + 2;
+            {
+                brushSize = brushSize + 1;
+                color.Width = brushSize;
+            }
         }
 
         private void Smaller_Click(object sender, EventArgs e)
         {
-            if (brushSize > 2)
-                brushSize = brushSize - 2;
+            if (brushSize > 1)
+            {
+                brushSize = brushSize - 1;
+                color.Width = brushSize;
+            }
+
         }
 
         private void Painter_Paint(object sender, PaintEventArgs e)
         {
-            //e.Graphics.DrawImageUnscaled(this.drawing, Point.Empty);
-            //e.Graphics.DrawRectangle(Pen.red, this.selectionRectangle);
+
+            e.Graphics.DrawImageUnscaled(this.drawing, Point.Empty);
+            //e.Graphics.DrawRectangle(color, this.selectionRectangle);
         }
 
         private void ChooseColor_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            //newColor = colorDialog1;
+            color.Color = colorDialog1.Color;
         }
-
     }
 }
