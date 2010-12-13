@@ -12,42 +12,49 @@ namespace Painter
     public partial class Painter : Form
     {
         bool paint = false;
-        SolidBrush color = new SolidBrush (System.Drawing.Color.Black);
         int brushSize = 2;
+        Pen color;
+        Point startLocation;
+        Graphics graphic;
+        Bitmap drawing;
+        Rectangle selectionRectangle;
+
 
         public Painter()
         {
             InitializeComponent();
-        }
-
-        private void ChooseColor_Click(object sender, EventArgs e)
-        {
-            colorDialog1.ShowDialog();
+            drawing = new Bitmap(this.Width, this.Height);
+            graphic = Graphics.FromImage(this.drawing);
+            color = new Pen(Color.Black);
+            //Graphics.FromImage(this.drawing);
+            //selectionRectangle = new Rectangle(10, 10);
         }
 
         private void New_Click(object sender, EventArgs e)
         {
-            Graphics graphica = panel1.CreateGraphics();
-            graphica.Clear(panel1.BackColor);
+
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void Painter_MouseDown(object sender, MouseEventArgs e)
         {
             paint = true;
+            startLocation = e.Location;
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void Painter_MouseUp(object sender, MouseEventArgs e)
         {
             paint = false;
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void Painter_MouseMove(object sender, MouseEventArgs e)
         {
             if (paint)
-                color = new SolidBrush(Color.Red);
-                Graphics graphic = panel1.CreateGraphics();
-                graphic.FillRectangle(color, e.X, e.Y, brushSize, brushSize);
-                graphic.Dispose();
+            {
+                //color = new Pen(Color.Red);
+                graphic.DrawLine(color, startLocation, e.Location);
+                startLocation = e.Location;
+                this.Refresh();
+            }
         }
 
         private void Bigger_Click(object sender, EventArgs e)
@@ -60,6 +67,18 @@ namespace Painter
         {
             if (brushSize > 2)
                 brushSize = brushSize - 2;
+        }
+
+        private void Painter_Paint(object sender, PaintEventArgs e)
+        {
+            //e.Graphics.DrawImageUnscaled(this.drawing, Point.Empty);
+            //e.Graphics.DrawRectangle(Pen.red, this.selectionRectangle);
+        }
+
+        private void ChooseColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            //newColor = colorDialog1;
         }
 
     }

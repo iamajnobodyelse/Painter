@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.New = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -41,20 +40,6 @@
             this.Bigger = new System.Windows.Forms.Button();
             this.Smaller = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(691, 354);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // New
             // 
@@ -156,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(691, 422);
             this.Controls.Add(this.Smaller);
             this.Controls.Add(this.Bigger);
@@ -167,17 +153,18 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.New);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Painter";
             this.Text = "Painter";
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Painter_MouseUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Painter_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Painter_MouseMove);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button New;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
