@@ -83,15 +83,15 @@ namespace Painter
             paint = false;
             if (brushType == "square" && drawSquare == true)
             {
-                clickB1 = (clickA1 - e.X);
-                clickB2 = (clickA2 - e.Y);
+                clickB1 = Math.Abs(clickA1 - e.X);
+                clickB2 = Math.Abs(clickA2 - e.Y);
                 graphic.DrawRectangle(pen, clickA1, clickA2, clickB1, clickB2);
                 drawSquare = false;
             }
             if (brushType == "circle" && drawCircle == true)
             {
-                clickB1 = (clickA1 - e.X);
-                clickB2 = (clickA2 - e.Y);
+                clickB1 = Math.Abs(clickA1 - e.X);
+                clickB2 = Math.Abs(clickA2 - e.Y);
                 graphic.DrawEllipse(pen, clickA1, clickA2, clickB1, clickB2);
                 drawCircle = false;
             }
