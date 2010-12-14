@@ -30,6 +30,7 @@ namespace Painter
         int clickB2;
         Point point1;
         Point point2;
+        Region fillRegion;
 
 
         public Painter()
@@ -86,6 +87,7 @@ namespace Painter
                 clickB1 = Math.Abs(clickA1 - e.X);
                 clickB2 = Math.Abs(clickA2 - e.Y);
                 graphic.DrawRectangle(pen, clickA1, clickA2, clickB1, clickB2);
+                this.Refresh();
                 drawSquare = false;
             }
             if (brushType == "circle" && drawCircle == true)
@@ -93,14 +95,15 @@ namespace Painter
                 clickB1 = Math.Abs(clickA1 - e.X);
                 clickB2 = Math.Abs(clickA2 - e.Y);
                 graphic.DrawEllipse(pen, clickA1, clickA2, clickB1, clickB2);
+                this.Refresh();
                 drawCircle = false;
             }
             if (brushType == "line" && drawLine == true)
             {
                 point2 = e.Location;
                 graphic.DrawLine(pen, point1, point2);
+                this.Refresh();
                 drawLine = false;
-                //point2 = 0;
             }
         }
 
@@ -112,18 +115,14 @@ namespace Painter
                 {
                     graphic.DrawLine(pen, startLocation, e.Location);
                     startLocation = e.Location;
+                    this.Refresh();
                 }
-                if (brushType == "square")
-                {
-
-                }
-                this.Refresh();
             }
         }
 
         private void Bigger_Click(object sender, EventArgs e)
         {
-            if (brushSize < 20)
+            if (brushSize < 40)
             {
                 brushSize = brushSize + 1;
                 pen.Width = brushSize;
@@ -144,7 +143,7 @@ namespace Painter
         {
 
             e.Graphics.DrawImageUnscaled(this.drawing, Point.Empty);
-            //e.Graphics.DrawRectangle(color, this.selectionRectangle);
+            //e.Graphics.DrawRectangle(pen, this.selectionRectangle);
         }
 
         private void ChooseColor_Click(object sender, EventArgs e)
@@ -172,6 +171,17 @@ namespace Painter
         private void buttonLine_Click(object sender, EventArgs e)
         {
             brushType = "line";
+        }
+
+        private void buttonFill_Click(object sender, EventArgs e)
+        {
+            /*
+            if (brushType == "square")
+                fillRegion = new Region(fillSquare);
+            if (brushType == "circle")
+                fillRegion = new Region(fillCircle);
+            graphic.FillRegion(brush, fillRegion);
+            */
         }
     }
 }

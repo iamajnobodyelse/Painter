@@ -33,7 +33,7 @@
             this.buttonSquare = new System.Windows.Forms.Button();
             this.buttonCircle = new System.Windows.Forms.Button();
             this.buttonLine = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonFill = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.ChooseColor = new System.Windows.Forms.Button();
@@ -91,14 +91,14 @@
             this.buttonLine.UseVisualStyleBackColor = true;
             this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
-            // button6
+            // buttonFill
             // 
-            this.button6.Location = new System.Drawing.Point(490, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(91, 28);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonFill.Location = new System.Drawing.Point(490, 0);
+            this.buttonFill.Name = "buttonFill";
+            this.buttonFill.Size = new System.Drawing.Size(91, 28);
+            this.buttonFill.TabIndex = 6;
+            this.buttonFill.Text = "Fill";
+            this.buttonFill.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -151,7 +151,7 @@
             this.Controls.Add(this.Bigger);
             this.Controls.Add(this.ChooseColor);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.buttonFill);
             this.Controls.Add(this.buttonLine);
             this.Controls.Add(this.buttonCircle);
             this.Controls.Add(this.buttonSquare);
@@ -175,7 +175,7 @@
         private System.Windows.Forms.Button buttonSquare;
         private System.Windows.Forms.Button buttonCircle;
         private System.Windows.Forms.Button buttonLine;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonFill;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button ChooseColor;
