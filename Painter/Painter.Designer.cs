@@ -31,8 +31,8 @@
             this.New = new System.Windows.Forms.Button();
             this.buttonPen = new System.Windows.Forms.Button();
             this.buttonSquare = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonCircle = new System.Windows.Forms.Button();
+            this.buttonLine = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -71,23 +71,25 @@
             this.buttonSquare.UseVisualStyleBackColor = true;
             this.buttonSquare.Click += new System.EventHandler(this.buttonSquare_Click);
             // 
-            // button4
+            // buttonCircle
             // 
-            this.button4.Location = new System.Drawing.Point(294, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 28);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonCircle.Location = new System.Drawing.Point(294, 0);
+            this.buttonCircle.Name = "buttonCircle";
+            this.buttonCircle.Size = new System.Drawing.Size(91, 28);
+            this.buttonCircle.TabIndex = 4;
+            this.buttonCircle.Text = "Circle";
+            this.buttonCircle.UseVisualStyleBackColor = true;
+            this.buttonCircle.Click += new System.EventHandler(this.buttonCircle_Click);
             // 
-            // button5
+            // buttonLine
             // 
-            this.button5.Location = new System.Drawing.Point(392, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 28);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonLine.Location = new System.Drawing.Point(392, 0);
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(91, 28);
+            this.buttonLine.TabIndex = 5;
+            this.buttonLine.Text = "Line";
+            this.buttonLine.UseVisualStyleBackColor = true;
+            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
             // button6
             // 
@@ -150,8 +152,8 @@
             this.Controls.Add(this.ChooseColor);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonLine);
+            this.Controls.Add(this.buttonCircle);
             this.Controls.Add(this.buttonSquare);
             this.Controls.Add(this.buttonPen);
             this.Controls.Add(this.New);
@@ -171,8 +173,8 @@
         private System.Windows.Forms.Button New;
         private System.Windows.Forms.Button buttonPen;
         private System.Windows.Forms.Button buttonSquare;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonCircle;
+        private System.Windows.Forms.Button buttonLine;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ColorDialog colorDialog1;

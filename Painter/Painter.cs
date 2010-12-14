@@ -13,7 +13,8 @@ namespace Painter
     {
         bool paint = false;
         bool drawSquare = false;
-        bool getClickA = false;
+        bool drawCircle = false;
+        bool drawLine = false;
         int brushSize = 1;
         Pen pen;
         Brush brush;
@@ -27,6 +28,8 @@ namespace Painter
         int clickA2;
         int clickB1;
         int clickB2;
+        Point point1;
+        Point point2;
 
 
         public Painter()
@@ -56,11 +59,22 @@ namespace Painter
         {
             paint = true;
             startLocation = e.Location;
-            if (brushType == "square" && clickA1 == 0)
+            if (brushType == "square")
             {
                 clickA1 = e.X;
                 clickA2 = e.Y;
                 drawSquare = true;
+            }
+            if (brushType == "circle")
+            {
+                clickA1 = e.X;
+                clickA2 = e.Y;
+                drawCircle = true;
+            }
+            if (brushType == "line")
+            {
+                point1 = e.Location;
+                drawLine = true;
             }
         }
 
@@ -73,7 +87,20 @@ namespace Painter
                 clickB2 = (clickA2 - e.Y);
                 graphic.DrawRectangle(pen, clickA1, clickA2, clickB1, clickB2);
                 drawSquare = false;
-                clickA1 = 0;
+            }
+            if (brushType == "circle" && drawCircle == true)
+            {
+                clickB1 = (clickA1 - e.X);
+                clickB2 = (clickA2 - e.Y);
+                graphic.DrawEllipse(pen, clickA1, clickA2, clickB1, clickB2);
+                drawCircle = false;
+            }
+            if (brushType == "line" && drawLine == true)
+            {
+                point2 = e.Location;
+                graphic.DrawLine(pen, point1, point2);
+                drawLine = false;
+                //point2 = 0;
             }
         }
 
@@ -135,6 +162,16 @@ namespace Painter
         private void buttonSquare_Click(object sender, EventArgs e)
         {
             brushType = "square";
+        }
+
+        private void buttonCircle_Click(object sender, EventArgs e)
+        {
+            brushType = "circle";
+        }
+
+        private void buttonLine_Click(object sender, EventArgs e)
+        {
+            brushType = "line";
         }
     }
 }
